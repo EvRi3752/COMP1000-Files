@@ -36,7 +36,7 @@ void draw() {
   
   //Draw the legs
   stroke(0);
-  int legDistance = 20;
+  int legDistance = 25;
   for (float legX = 0; legX < wormLength; legX += legDistance) {
     line(x+legX, y+wormWidth/2, x+legX, y+wormWidth);
   }

@@ -89,14 +89,15 @@ void draw(){
  else{
    CloudX++;
  }
+ // mouse pointer
+ for(int i = 1; i<10; i++) {
+     fill(255,255,255);
+     circle(mouseX, mouseY, 20);
+ }
 }
 
 void keyPressed(){
- PosY-=30; // with the press of a key, shapes with PosY variable can be moved up by 30 in another words a jump button for the character
-}
-
-void mousePressed(){
-  PosX = mouseX;
-  PosY = mouseY;
-
+ if(key == ' '){
+  PosY-=30; // with the press of a key, shapes with PosY variable can be moved up by 30 in another words a jump button for the character
+ }
 }

@@ -42,6 +42,10 @@ void draw() {
   for (int i = 0; i < numberOfLegs; i++) {
     line(x + i * legDistance, y-wormWidth/2, x + i * legDistance, y-wormWidth);
     line(x + i * legDistance, y+wormWidth/2, x + i * legDistance, y+wormWidth);
+    if(i%2==0){
+      circle(x+i * legDistance, y-wormWidth, 5);
+      circle(x+i * legDistance, y+wormWidth, 5); 
+    }
   }
  
  
@@ -70,4 +74,4 @@ void keyPressed() {
 }
 
 // There's only one loop due to it drawing both legs within
-// Scope of wormlength is 400, scope of legdistance is 20, scope of i is equal to numberOfLegs
+// Scope of wormlength is global, scope of legdistance is local, scope of i is local
