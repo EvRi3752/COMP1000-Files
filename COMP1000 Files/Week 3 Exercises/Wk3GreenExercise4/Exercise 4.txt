@@ -1,0 +1,23 @@
+Exercise 4:
+1. False
+2. True && !true
+        true && false
+        false
+3. True && !false
+        true && true
+        true
+4. True
+5.1 False && True
+          False
+5.2 True && True
+         True
+5.3 True && False
+         False
+6.1 True && False
+         False
+6.2 True && True
+         True
+6.3 False && False
+          False
+6.4 False && True
+          False
