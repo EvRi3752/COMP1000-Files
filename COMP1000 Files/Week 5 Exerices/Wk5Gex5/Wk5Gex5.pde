@@ -5,8 +5,8 @@ Comp1000 2024
 float x = 0;
 float y = 0;
 float dx = 0;
-float wormLength = 100;
-float headSize = 40;
+int wormLength = 100;
+int headSize = 40;
 
 void setup() {
   size(600, 400);
@@ -37,19 +37,14 @@ void draw() {
   //Draw the legs
   stroke(0);
   int legDistance = 20;
-  for (float legX = 0; legX < wormLength; legX += legDistance) {
-    line(x+legX, y+wormWidth/2, x+legX, y+wormWidth);
-  }
+  int numberOfLegs = wormLength/legDistance + 1;
   
-  stroke(0);
-  for (float legX = 0; legX <= wormLength; legX += legDistance) {
-    line(x+legX, y+wormWidth/2, x+legX, y+wormWidth);
-  }
-
-  int numberOfLegs = (int) wormLength/legDistance + 1;// Why plus 1
   for (int i = 0; i < numberOfLegs; i++) {
-    line(x + i * legDistance , y-wormWidth/2, x + i * legDistance, y-wormWidth);
+    line(x + i * legDistance, y-wormWidth/2, x + i * legDistance, y-wormWidth);
+    line(x + i * legDistance, y+wormWidth/2, x + i * legDistance, y+wormWidth);
   }
+ 
+ 
  
   // Loop around
   if (x < -wormLength - headSize/2) {
@@ -73,3 +68,6 @@ void keyPressed() {
     }
   } 
 }
+
+// There's only one loop due to it drawing both legs within
+// Scope of wormlength is 400, scope of legdistance is 20, scope of i is equal to numberOfLegs
