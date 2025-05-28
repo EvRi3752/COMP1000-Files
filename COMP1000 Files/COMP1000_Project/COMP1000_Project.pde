@@ -1,14 +1,14 @@
 avatar GrassHopper;
 clouds CloudStream;
-pole po;
-pole[] Pole = new pole[40];
+avatar pole;
+avatar[] Pole = new avatar[60];
 
 void setup() {
   size(800, 600); // sets the size of the window to 800x600
   GrassHopper = new avatar();
   CloudStream = new clouds();
-  for (int i = 0; i<40; i++) {
-    Pole[i] = new pole();
+  for (int i = 0; i<60; i++) {
+    Pole[i] = new avatar();
   }
 }
 
@@ -27,23 +27,22 @@ void bg() {
 
 void draw() {
   bg();
-  GrassHopper.display();
-  GrassHopper.move();
   for (int i =0; i<40; i++) {
-    Pole[i].display();
-    Pole[i].move();
+    Pole[i].display2();
+    Pole[i].move2();
   }
   CloudStream.display();
   CloudStream.move();
-
-
-
+  GrassHopper.hit();
 
   // mouse pointer
   for (int i = 1; i<10; i++) {
     fill(255, 255, 255);
     circle(mouseX, mouseY, 20);
   }
+  
+  GrassHopper.display();
+  GrassHopper.move();
 }
 
 void keyPressed() {

@@ -3,10 +3,15 @@ class avatar {
   float PosY = height/2; // 300;
   boolean AvatarFloat =true;
   boolean AvatarRes =true;
+  float poleX;
+  float poleY;
+  float poleL;
+  float poleH;
 
 
   void display() {
     // Avatar Main Body
+    scale(0.5);
     fill(0, 255, 0); // fills in the color green for all following shapes
     triangle(PosX+100, PosY, PosX-400, PosY, PosX-400, PosY+100); // draws a triangle at 500,300,0,300,0,400 (head)
     rect(PosX-400, PosY, 300, 100); // draws a rectangle 0,300,300,100 (main body)
@@ -50,4 +55,27 @@ class avatar {
       triangle(PosX-100, PosY-100, PosX-400, PosY+500, PosX-400, PosY-300); // draws a triangle 300,200,0,300,0,600 (wings)
     }
   }
+ void display2(){
+  fill(150, 75, 0);
+    for (int i =0; i<=10000; i+=400) {
+      rect(poleX+i, poleY+400, poleL+50, poleH+150);
+    }
+
+    for (int i =0; i<=10000; i+=600) {
+      rect(poleX+i, poleY, poleL+50, poleH+150);
+    }
+ }
+ void move2(){
+  if (poleX <= 200) {
+      poleX--;
+    }
+ }  
+ void hit(){
+  float d =  dist(PosX, PosY, poleX, poleY);
+  float maxDist = dist(poleL ,poleH, PosX, PosY); 
+  if(d == maxDist){
+    PosX = width;
+    PosY = height; 
+ }
+}
 }
